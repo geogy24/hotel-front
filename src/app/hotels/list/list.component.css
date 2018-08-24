@@ -1,0 +1,70 @@
+.card {
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 576px) {
+  .card-price {
+    border-top: dashed gray 0.1em;
+  }
+
+  h6 {
+    margin-top: 1em!important;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-price {
+    border-left: dashed gray 0.1em;
+  }
+}
+
+.coin {
+  color: #E16800;
+}
+
+.type-coin {
+  font-size: 1.5em;
+}
+
+.price {
+  font-size: 2.5em;
+}
+
+.btn-block {
+  width: 80% !important;
+}
+
+.btn-ver {
+  margin: 0px auto
+}
+
+h6 {
+  text-transform: capitalize;
+  color: #0679B3 !important;
+  font-weight: bold;
+}
+
+small {
+  font-size: 90%;
+}
+
+.center-vertically {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-row {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1em;
+}
+
+.delete {
+  color:aliceblue;
+  cursor: pointer;
+}
+
+.btn-crear {
+  margin-top: 1em;
+}

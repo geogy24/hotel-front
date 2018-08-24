@@ -1,0 +1,23 @@
+.stars {
+  color: #FFBB00 !important;
+}
+
+.btn-primary {
+  background-color: #124384 !important;
+}
+
+.title {
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .text-space {
+    margin-bottom: 1em
+  }
+}
+
+@media (min-width: 768px) {
+  .text-space {
+    margin-right: 1em;
+  }
+}

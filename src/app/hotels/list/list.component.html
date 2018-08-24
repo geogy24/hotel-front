@@ -1,0 +1,64 @@
+<ngb-alert *ngIf="!showAlert" (close)="showAlert = true" type="success">
+  {{message}}
+</ngb-alert>
+
+<div *ngIf="hotels;then listhotels else nohotels"></div>
+
+<ng-template #listhotels>
+  <div *ngFor="let hotel of hotels" class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-3 col-md-3">
+            <img src="{{url_image}}{{hotel.image}}" class="rounded float-left img-fluid" alt="hotel" >
+        </div>
+        <div class="col-sm-6 col-md-6">
+          <h6>{{hotel.name}}</h6>
+          <ng-container *ngFor="let star of [1,2,3,4,5]" class="display-row">
+            <i *ngIf="hotel.stars >= star" class="fa fa-star star"></i>
+          </ng-container>
+          <div class="display-row">
+            <ng-container *ngFor="let amenitie of hotel.amenities">
+              <img src="assets/icons/amenities/{{amenitie}}.svg" alt="{{amenitie}}" class="amenitie"/>
+            </ng-container>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3 card-price text-center center-vertically">
+          <div>
+            <p><small class="text-muted">Precio por noche por habitaci&oacute;n</small></p>
+            <p class="coin"><span class="type-coin">ARS</span> <strong class="price">{{hotel.price | number}}</strong></p>
+            <button class="btn btn-block btn-primary btn-color btn-ver" (click)="openDetail(hotel._id)">
+              <strong>Ver hotel</strong>
+            </button>
+            <i class="fa fa-trash align-text-bottom delete" (click)="open(delete, hotel)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #nohotels>
+  <div class="jumbotron">
+    <p class="text-center">No hay hoteles para mostrar</p>
+  </div>
+</ng-template>
+
+<button routerLink="hotel" class="btn btn-primary float-right col-12 btn-color btn-crear">
+  <strong>Nuevo hotel</strong>
+</button>
+
+<ng-template #delete let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Importante</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('close')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    ¿Está seguro de eliminar el hotel <strong>{{selectedHotel.name}}</strong>?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('accept')">Eliminar</button>
+    <button type="button" class="btn btn-outline-dark" (click)="d('cancel')">Cancelar</button>
+  </div>
+</ng-template>

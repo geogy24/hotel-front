@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-header title">
+    <strong>Filtros</strong>
+  </div>
+</div>
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+  <ngb-accordion #acc="ngbAccordion" activeIds="static-1,static-2" >
+    <ngb-panel id="static-1">
+      <ng-template ngbPanelTitle>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <i class="fa fa-search"></i>
+            <strong>Nombre de hotel</strong>
+            <i class="fa fa-sort-up float-right" ></i>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="row">
+          <input type="text" class="form-control col-sm-10 col-md-7 text-space" id="name" placeholder="Ingrese el nombre del hotel" formControlName="name">
+          <button id="submit" type="submit" class="btn btn-primary col"><strong>Aceptar</strong></button>
+        </div>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="static-2">
+      <ng-template ngbPanelTitle>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <i class="fa fa-star"></i>
+            <strong>Estrellas</strong>
+            <i class="fa fa-sort-up float-right"></i>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="row">
+          <div class="col-12">
+            <label>
+              <input type="checkbox" formControlName="0">
+              <small><strong>Todas las estrellas</strong></small>
+            </label>
+          </div>
+          <ng-container *ngFor="let star of [5,4,3,2,1]">
+            <div class="col-12">
+              <label>
+                <input type="checkbox" formControlName="{{star}}">
+                <ngb-rating [rate]="star" [readonly]="true" [max]="star" [starTemplate]="t"></ngb-rating>
+              </label>
+            </div>
+          </ng-container>
+          <ng-template #t let-fill="fill">
+            <i class="fa fa-star stars"></i>
+          </ng-template>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</form>

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  background-color: #F4F4F4 !important;
+}
+
+a {
+  color: #0679B3 !important;
+}
+
+.bg-info {
+  background-color: #124384 !important;
+}
+
+.star {
+  color: #FFBB00;
+}
+
+.btn-color {
+  background-color: #124384 !important;
+}
+
+.amenitie {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5em;
+}
